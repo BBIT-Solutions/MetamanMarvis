@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+#Layout-Settings
+/[Uu]ser[Ss]ettings/[Ll]ayouts/*.dwlt
