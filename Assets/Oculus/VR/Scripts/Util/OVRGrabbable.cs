@@ -11,6 +11,7 @@ permissions and limitations under the License.
 ************************************************************************************/
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -32,6 +33,10 @@ public class OVRGrabbable : MonoBehaviour
     protected bool m_grabbedKinematic = false;
     protected Collider m_grabbedCollider = null;
     protected OVRGrabber m_grabbedBy = null;
+
+    private bool hadConstraints = false;
+    private RigidbodyConstraints tmpConstraints;
+
 
 	/// <summary>
 	/// If true, the object can currently be grabbed.
@@ -112,7 +117,25 @@ public class OVRGrabbable : MonoBehaviour
     {
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
-        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+
+        if(  (rb.constraints == RigidbodyConstraints.FreezeRotationX) 
+           ||(rb.constraints == RigidbodyConstraints.FreezeRotationY) 
+           ||(rb.constraints == RigidbodyConstraints.FreezeRotationZ) 
+           ||(rb.constraints == RigidbodyConstraints.FreezeRotation) 
+        ){
+            hadConstraints = true;
+            tmpConstraints = rb.constraints;
+            StartCoroutine(UnfreezeDelayed(rb));
+        }
+    }
+
+    private IEnumerator UnfreezeDelayed(Rigidbody grb){
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        grb.constraints = RigidbodyConstraints.None;
     }
 
 	/// <summary>
@@ -126,6 +149,11 @@ public class OVRGrabbable : MonoBehaviour
         rb.angularVelocity = angularVelocity;
         m_grabbedBy = null;
         m_grabbedCollider = null;
+
+        if(hadConstraints){
+            rb.constraints = tmpConstraints;
+            hadConstraints = false;
+        }
     }
 
     void Awake()

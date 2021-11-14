@@ -73,6 +73,7 @@ public class OVRGrabber : MonoBehaviour
 	protected Dictionary<OVRGrabbable, int> m_grabCandidates = new Dictionary<OVRGrabbable, int>();
 	protected bool m_operatingWithoutOVRCameraRig = true;
 
+
     /// <summary>
     /// The currently grabbed object.
     /// </summary>
@@ -317,7 +318,7 @@ public class OVRGrabber : MonoBehaviour
         }
     }
 
-    protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
+    /*protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
     {
         if (m_grabbedObj == null)
         {
@@ -338,7 +339,53 @@ public class OVRGrabber : MonoBehaviour
             grabbedRigidbody.MovePosition(grabbablePosition);
             grabbedRigidbody.MoveRotation(grabbableRotation);
         }
+    }*/
+
+    //HINT: adaption to avoid wrong rotation on grabbing (from here: https://forum.unity.com/threads/ovr-grabbable-script-for-oculus-touch-controllers-and-physic-rotate-constraints-trouble.516222/ )
+    protected virtual void MoveGrabbedObject(Vector3 pos, Quaternion rot, bool forceTeleport = false)
+    {
+        if (m_grabbedObj == null)
+        {
+            return;
+        }
+ 
+        Rigidbody grabbedRigidbody = m_grabbedObj.grabbedRigidbody;
+        Vector3 grabbablePosition = pos + rot * m_grabbedObjectPosOff;
+ 
+        Quaternion grabbableRotation = rot * m_grabbedObjectRotOff;
+
+        
+
+        if ((grabbedRigidbody.constraints & RigidbodyConstraints.FreezeRotationX) != RigidbodyConstraints.None)
+        {
+            grabbableRotation = Quaternion.Euler(grabbedRigidbody.transform.rotation.eulerAngles.x, grabbableRotation.eulerAngles.y, grabbableRotation.eulerAngles.z);
+        }
+ 
+        if ((grabbedRigidbody.constraints & RigidbodyConstraints.FreezeRotationY) != RigidbodyConstraints.None)
+        {
+            grabbableRotation = Quaternion.Euler(grabbableRotation.eulerAngles.x, grabbedRigidbody.transform.rotation.eulerAngles.y, grabbableRotation.eulerAngles.z);
+        }
+ 
+        if ((grabbedRigidbody.constraints & RigidbodyConstraints.FreezeRotationZ) != RigidbodyConstraints.None)
+        {
+            grabbableRotation = Quaternion.Euler(grabbableRotation.eulerAngles.x, grabbableRotation.eulerAngles.y, grabbedRigidbody.transform.rotation.eulerAngles.z);
+        }
+ 
+
+        if (forceTeleport)
+        {
+            grabbedRigidbody.transform.position = grabbablePosition;
+            grabbedRigidbody.transform.rotation = grabbableRotation;
+        }
+        else
+        {
+            grabbedRigidbody.MovePosition(grabbablePosition);
+            grabbedRigidbody.MoveRotation(grabbableRotation);
+        }
     }
+
+    
+
 
     protected void GrabEnd()
     {
