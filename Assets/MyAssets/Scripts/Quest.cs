@@ -8,24 +8,45 @@ public class Quest : MonoBehaviour {
 //TODO: maybe name it "Subquest" or so
     [SerializeField] ElementToPlace[] questParts; 
 
+    [SerializeField] GameObject reward;
 
-    // Update is called once per frame
-    void Update()
-    {
+    bool questSolved;
+
+    void Awake() {
+        reward.SetActive(false);
+        questSolved = false;
+    }
+
+    void Update() {
+
+        if(questSolved) return;
         
 //TODO: has this to be done in Update necessarily?!
 
-        bool questSolved = true;
+        bool tmpSolved = true;
         for(int i=0; i<questParts.Length; i++){
             if(!questParts[i].IsSolved){
-                questSolved = false;
+                tmpSolved = false;
                 break;
             }
         }
 
-        if(questSolved){
+        if(tmpSolved){
+            questSolved = true;
             Debug.Log("full quest solved: " + gameObject.name);
+            ShowReward();
+            DestroyAllQuestParts(); 
         }
 
+    }
+
+    void DestroyAllQuestParts(){
+        for(int i=0; i<questParts.Length; i++){
+            Destroy(questParts[i].gameObject);
+        }
+    }
+
+    void ShowReward(){
+        reward.SetActive(true);
     }
 }

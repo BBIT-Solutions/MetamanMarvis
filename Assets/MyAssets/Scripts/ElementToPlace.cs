@@ -43,12 +43,15 @@ public class ElementToPlace : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        if(isSolved) return;
          
         if(grabbable.isGrabbed || Input.GetKeyDown(KeyCode.C)){   //Keycode to DEBUG:
             Debug.Log("check " + gameObject.name);
 
             if(CheckEndPosition()){
                 meshRenderer.material = materialHint;
+//TODO: play "exiting/tensioning" sound (if not started yet)
                 correctPosition.Hide();
                 atCorrectEndPosition = true;
                 Debug.Log("HINT!!!");
@@ -87,7 +90,7 @@ public class ElementToPlace : MonoBehaviour {
     private void Solved(){
 
         if(!atCorrectEndPosition) return;
-
+        if(isSolved) return;
 
         isSolved = true;
         Debug.Log("solved ... " + gameObject.name);
@@ -95,14 +98,14 @@ public class ElementToPlace : MonoBehaviour {
         meshRenderer.material = materialSolved;
 
 
-        GameObject.Destroy(correctPosition.gameObject);
         // GetComponent<OVRGrabbable>().enabled = false;
         Destroy(GetComponent<OVRGrabbable>()); // .enabled = false;
 //TODO: rigidbody auch noch destroy?! 
 
 
 //TODO: IMPORTANT: SNAP/Tween to correct postion.... before it was destroyed^^
-
+        LeanTween.rotate(gameObject, correctPosition.gameObject.transform.rotation.eulerAngles, 0.15f).setEaseOutQuad();
+        LeanTween.move(gameObject, correctPosition.gameObject.transform.position, 0.3f).setEaseOutQuad().setOnComplete( () => Destroy(correctPosition.gameObject));
 
 
 //NEXT: hier irgendwas auslösen....entweder auf correct positon oder hier.... evtl. auch dann das richtig diffuse anzeigen

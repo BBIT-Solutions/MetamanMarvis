@@ -156,7 +156,7 @@ public class OVRGrabbable : MonoBehaviour
             hadConstraints = false;
         }
 
-        grabEnded.Invoke();
+        grabEnded?.Invoke();
     }
 
     void Awake()
