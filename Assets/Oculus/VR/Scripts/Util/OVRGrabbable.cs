@@ -37,6 +37,7 @@ public class OVRGrabbable : MonoBehaviour
     private bool hadConstraints = false;
     private RigidbodyConstraints tmpConstraints;
 
+    public Action grabEnded;
 
 	/// <summary>
 	/// If true, the object can currently be grabbed.
@@ -154,6 +155,8 @@ public class OVRGrabbable : MonoBehaviour
             rb.constraints = tmpConstraints;
             hadConstraints = false;
         }
+
+        grabEnded.Invoke();
     }
 
     void Awake()
