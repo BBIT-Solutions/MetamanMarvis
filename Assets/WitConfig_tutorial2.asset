@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
+  m_Name: WitConfig_tutorial2
+  m_EditorClassIdentifier: 
+  application:
+    witConfiguration: {fileID: 0}
+    name: oculus_meta_voice_tutorial_2
+    id: 347988310417714
+    lang: en
+    isPrivate: 1
+    createdAt: 2021-11-16T09:44:12-0800
+  configId: 5f825421999e86e46a1fcb2915be04b2
+  clientAccessToken: J2LJFODR7UUME3Q3LRW6DIET4NU3MSOR
+  entities: []
+  intents: []
+  traits: []
