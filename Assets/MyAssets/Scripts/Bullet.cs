@@ -36,6 +36,9 @@ public class Bullet : MonoBehaviour {
         audioSource.clip = explosionSound;
         audioSource.Play();
 
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+
         StartCoroutine(DestroyDelayed());
     }
 
