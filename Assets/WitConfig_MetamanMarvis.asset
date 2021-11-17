@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
+  m_Name: WitConfig_MetamanMarvis
+  m_EditorClassIdentifier: 
+  application:
+    witConfiguration: {fileID: 0}
+    name: metaman_marvis
+    id: 612967726558550
+    lang: en
+    isPrivate: 0
+    createdAt: 2021-11-17T02:25:35-0800
+  configId: 690d05aa9c358794b87d6ad443927956
+  clientAccessToken: UADFDZBYVK6WZNVPRBJQ6M4UMQQ3433R
+  entities: []
+  intents: []
+  traits: []

@@ -21,6 +21,74 @@ MonoBehaviour:
     createdAt: 2021-11-16T09:44:12-0800
   configId: 5f825421999e86e46a1fcb2915be04b2
   clientAccessToken: J2LJFODR7UUME3Q3LRW6DIET4NU3MSOR
-  entities: []
-  intents: []
+  entities:
+  - witConfiguration: {fileID: 11400000}
+    id: 948452605754218
+    name: color
+    lookups:
+    - free-text
+    - keywords
+    roles:
+    - 
+    keywords:
+    - keyword: black
+      synonyms:
+      - black
+    - keyword: blue
+      synonyms:
+      - blue
+    - keyword: green
+      synonyms:
+      - green
+    - keyword: orange
+      synonyms:
+      - orange
+    - keyword: red
+      synonyms:
+      - red
+    - keyword: yellow
+      synonyms:
+      - yellow
+  - witConfiguration: {fileID: 11400000}
+    id: 261926939327895
+    name: shape
+    lookups:
+    - keywords
+    roles:
+    - 
+    keywords:
+    - keyword: Capsule
+      synonyms:
+      - capsule
+      - player
+    - keyword: Cube
+      synonyms:
+      - cube
+      - quader
+      - rectangle
+    - keyword: Cylinder
+      synonyms:
+      - cylinder
+      - tube
+    - keyword: Sphere
+      synonyms:
+      - ball
+      - sphere
+  intents:
+  - witConfiguration: {fileID: 11400000}
+    id: 982096906064590
+    name: change_color
+    entities:
+    - witConfiguration: {fileID: 11400000}
+      id: 412466317190746
+      name: color:color
+      lookups: []
+      roles: []
+      keywords: []
+    - witConfiguration: {fileID: 11400000}
+      id: 397090998767310
+      name: shape:shape
+      lookups: []
+      roles: []
+      keywords: []
   traits: []
