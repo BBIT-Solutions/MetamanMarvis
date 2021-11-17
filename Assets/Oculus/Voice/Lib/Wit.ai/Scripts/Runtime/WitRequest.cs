@@ -332,10 +332,13 @@ namespace Facebook.WitAi
                                 if (stringResponse.Length > 0)
                                 {
                                     responseData = WitResponseJson.Parse(stringResponse);
-                                    var transcription = responseData["text"];
-                                    if (!string.IsNullOrEmpty(transcription))
-                                    {
-                                        onPartialTranscription?.Invoke(transcription);
+
+                                    if(responseData != null){ //BBIT: to fix bug which stopped the record after first word
+                                        var transcription = responseData["text"];
+                                        if (!string.IsNullOrEmpty(transcription))
+                                        {
+                                            onPartialTranscription?.Invoke(transcription);
+                                        }
                                     }
                                 }
                             }
