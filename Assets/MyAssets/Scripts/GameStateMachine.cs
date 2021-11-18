@@ -15,7 +15,11 @@ public class GameStateMachine : MonoBehaviour {
 //GUN CLOSE evtl. auch weglassen.... und das noch zeigen bevor man Hint revealed ... (um nicht 2 audios gleichzeitig zu haben)
         NONE,
         LEVEL1_GrabGun1, /*LEVEL1_BringGunClose,*/ LEVEL1_PlaceGun1, 
-        LEVEL2_xyzTODO,
+        LEVEL2_GrabGun2, LEVEL2_PlaceGun2, 
+        LEVEL3_GrabGun3, LEVEL3_PlaceGun3, 
+        LEVEL4_GrabGun4, LEVEL4_PlaceGun4, 
+        LEVEL5_GrabGun5, LEVEL5_PlaceGun5, 
+        // LEVEL2_xyzTODO,
         LEVEL5FINAL____xyzTODO_ShotAllEnemies 
     };
     public delegate void StateSolved(GameStateMachine.StateCanBeSolvedBy tag);
@@ -51,8 +55,13 @@ public class GameStateMachine : MonoBehaviour {
         StartCoroutine(StartDelayed());
     }
 
-    IEnumerator StartDelayed(){
-        yield return new WaitForSeconds(3f); //To avoid user hears the voice immediately on game-start
+    IEnumerator StartDelayed(){ //To avoid user hears the voice immediately on game-start and give the voice handler quickly to initialise
+        while(marvis.IsInitializing){
+            yield return null;
+        }
+        Debug.Log("Marvis initialized");
+
+        yield return new WaitForSeconds(2f); 
         PlayCurrentState();
     }
 

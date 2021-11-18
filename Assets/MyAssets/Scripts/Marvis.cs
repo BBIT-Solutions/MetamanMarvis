@@ -22,15 +22,38 @@ public class Marvis : MonoBehaviour {
     [SerializeField] AudioClip[] notUnderstandPhrases;
     private int currentNotUnderstandPhrase;
     
+    private bool isInitializing;
+    public bool IsInitializing{
+        get{
+            return isInitializing;
+        }
+    }
+
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
         currentNotUnderstandPhrase = 0;
+        isInitializing = true;
     }
 
     void Start() {
         voiceListener = FindObjectOfType<Oculus.Voice.AppVoiceExperience>();
+
+        StartCoroutine(Init());
     }
+
+    IEnumerator Init(){
+        //because the very first listening always is not working correctly, we do one "fake" listening to init the system
+
+//TODO: show a loading screen/bar or the logo or something similar in the meantime
+
+        voiceListener.ActivateImmediately();
+
+        yield return new WaitForSeconds(1f);
+
+        voiceListener.Deactivate();
+    }
+
 
     public IEnumerator Say(AudioClip toSay, bool listenAfterwards = false){
 
@@ -83,27 +106,52 @@ public class Marvis : MonoBehaviour {
 
 
     public void HearConfirmation(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+
         FindObjectOfType<DebugText>().Show("Conformation");
         GameStateMachine.Instance.SetStateForYes();
     }
 
     public void HearNegotiation(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
         FindObjectOfType<DebugText>().Show("Negotiation");
         GameStateMachine.Instance.SetStateForNo();
     }
 
     public void HearRepeatRequest(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
         FindObjectOfType<DebugText>().Show("RepeatRequest");
         GameStateMachine.Instance.SetStateForRepeat();
     }
     
 
     private void HearOutOfScope(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
         FindObjectOfType<DebugText>().Show("OutOfScope ... did not understand");
         GameStateMachine.Instance.HandleOutOfScope();
     }
 
     public void HearNothing(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
 //TODO: implement this case
         GameStateMachine.Instance.SetStateForNoInteraction();
 
@@ -111,6 +159,11 @@ public class Marvis : MonoBehaviour {
 
 
     public void HandleGeneralResponse(WitResponseNode node){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
         if(node["intents"] == null || node["intents"].Count == 0){
             HearOutOfScope();
         }

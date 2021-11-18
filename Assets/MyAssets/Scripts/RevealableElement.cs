@@ -6,6 +6,10 @@ public class RevealableElement : MonoBehaviour {
 
     public enum RevealableElementTag{
         LEVEL1_Table, LEVEL1_Materializer, LEVEL1_GrabableGunElement1, LEVEL1_GunHintElement1,
+        LEVEL2_GrabableGunElement2, LEVEL2_GunHintElement2,
+        LEVEL3_GrabableGunElement3, LEVEL3_GunHintElement3,
+        LEVEL4_GrabableGunElement4, LEVEL4_GunHintElement4,
+        LEVEL5_GrabableGunElement5, LEVEL5_GunHintElement5,
         LEVEL2_xyzTODO,
         LEVEL5FINAL____xyzTODO_enemy //something like this can you also assign to multiple gameObjects
     };
