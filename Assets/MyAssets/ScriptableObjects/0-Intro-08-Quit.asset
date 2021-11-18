@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
+  m_Name: 0-Intro-08-Quit
+  m_EditorClassIdentifier: 
+  audioClipToSay: {fileID: 8300000, guid: d460b18623153f946af920a7a3eaa520, type: 3}
+  onRepeat: {fileID: 11400000}
+  onNoInteraction: {fileID: 0}
+  onYes: {fileID: 11400000, guid: 1d78fc32034f7ab45a08c9a5a80562d9, type: 2}
+  onNo: {fileID: 11400000, guid: e0ef818199e623b49a3e6882344c3570, type: 2}
+  nextWithoutCondition: {fileID: 0}

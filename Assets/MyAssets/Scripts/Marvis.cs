@@ -27,10 +27,35 @@ public class Marvis : MonoBehaviour {
         voiceListener = FindObjectOfType<Oculus.Voice.AppVoiceExperience>();
 
 //JUST TO DEBUG:
-SayQuestion();
+//SayQuestion();
 
     }
 
+
+    public async void Say(AudioClip toSay){
+
+//TODO: maybe somehow check if not playing currently?! ... or handle that by the caller?!
+
+//TODO: add package async coroutine
+
+        audioSource.clip = toSay;
+        audioSource.Play();
+        
+        //wait for yielding
+            //audioSource.isPlaying
+
+
+    }
+
+
+//TODO: handle when you have to wait.... also da dann evtl. SaySomethingAndActivateListeningAfterwards nehmen
+                    // --> und dann bei Antwort noch entsprechend Methode in GameStateMachine callen
+
+
+
+
+
+/*
 
     public void SayQuestion(){
 
@@ -58,29 +83,32 @@ StartCoroutine(SaySomethingAndActivateListeningAfterwards(audioSource.clip));
                         //i will only record your voice after i have asked you something....
     }
 
+*/
+
+
     public void HearConfirmation(){
         FindObjectOfType<DebugText>().Show("Conformation");
 //JUST TO DEBUG:
-SayQuestion();
+//SayQuestion();
     }
 
     public void HearNegotiation(){
         FindObjectOfType<DebugText>().Show("Negotiation");
 //JUST TO DEBUG:
-SayQuestion();
+//SayQuestion();
     }
 
     public void HearRepeatRequest(){
         FindObjectOfType<DebugText>().Show("RepeatRequest");
 //JUST TO DEBUG:
-SayQuestion();
+//SayQuestion();
     }
     
 
     private void HearOutOfScope(){
         FindObjectOfType<DebugText>().Show("OutOfScope ... did not understand");
 //JUST TO DEBUG:
-SayQuestion();
+//SayQuestion();
     }
 
     public void HearNothing(){

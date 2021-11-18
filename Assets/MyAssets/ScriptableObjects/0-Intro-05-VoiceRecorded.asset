@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
+  m_Name: 0-Intro-05-VoiceRecorded
+  m_EditorClassIdentifier: 
+  audioClipToSay: {fileID: 8300000, guid: 77da25dabbd7379498e4faae742b8337, type: 3}
+  onRepeat: {fileID: 0}
+  onNoInteraction: {fileID: 0}
+  onYes: {fileID: 0}
+  onNo: {fileID: 0}
+  nextWithoutCondition: {fileID: 11400000, guid: 765bf9d0132222e44938c217dee31d49,
+    type: 2}
