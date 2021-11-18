@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Facebook.WitAi.Lib;
 using UnityEngine;
+using Asyncoroutine;
 
 public class Marvis : MonoBehaviour {
 
     
-    //level handler.... get current level each time...from a state machine or so
 
     //TODO: maybe.... skip request, go-back request, next request?! --> but can be also handled by the level state machine or so....
 
@@ -25,93 +25,51 @@ public class Marvis : MonoBehaviour {
 
     void Start() {
         voiceListener = FindObjectOfType<Oculus.Voice.AppVoiceExperience>();
-
-//JUST TO DEBUG:
-//SayQuestion();
-
     }
 
-
-    public async void Say(AudioClip toSay){
+    public IEnumerator Say(AudioClip toSay, bool listenAfterwards = false){
 
 //TODO: maybe somehow check if not playing currently?! ... or handle that by the caller?!
-
-//TODO: add package async coroutine
 
         audioSource.clip = toSay;
         audioSource.Play();
         
-        //wait for yielding
-            //audioSource.isPlaying
+        while(audioSource.isPlaying){
+            yield return null;
+        }
 
-
-    }
-
-
-//TODO: handle when you have to wait.... also da dann evtl. SaySomethingAndActivateListeningAfterwards nehmen
-                    // --> und dann bei Antwort noch entsprechend Methode in GameStateMachine callen
-
-
-
-
-
-/*
-
-    public void SayQuestion(){
-
-//return;
-
-//JUST TO DEBUG:
-StartCoroutine(SaySomethingAndActivateListeningAfterwards(audioSource.clip));
+        if(listenAfterwards){
+            voiceListener.Activate();
+//TODO: let a timeout run or so, if nothing happens
+        }
 
     }
-
-    public void SayQuestionRepeating(){
-        //(random?) from a list with similar ones...
-    }
-
-    public void SayNotUnderstanding(){
-        //randomly from different... each time when OutOfScope
-
-            //evtl. noch unterscheiden, wenn nach einer weile nix kommt.... und wenn etwas out of scope kommt
-                        //evtl. auch, did you say something.... please turn on your microphone....
-
-    }
-
-    public void SayHint(){
-        //randomly....use your voice...just tell me ... usw ...
-                        //i will only record your voice after i have asked you something....
-    }
-
-*/
 
 
     public void HearConfirmation(){
         FindObjectOfType<DebugText>().Show("Conformation");
-//JUST TO DEBUG:
-//SayQuestion();
+        GameStateMachine.Instance.SetStateForYes();
     }
 
     public void HearNegotiation(){
         FindObjectOfType<DebugText>().Show("Negotiation");
-//JUST TO DEBUG:
-//SayQuestion();
+        GameStateMachine.Instance.SetStateForNo();
     }
 
     public void HearRepeatRequest(){
         FindObjectOfType<DebugText>().Show("RepeatRequest");
-//JUST TO DEBUG:
-//SayQuestion();
+        GameStateMachine.Instance.SetStateForRepeat();
     }
     
 
     private void HearOutOfScope(){
         FindObjectOfType<DebugText>().Show("OutOfScope ... did not understand");
-//JUST TO DEBUG:
-//SayQuestion();
+//TODO: make a handler for that in the GameStateMachine
     }
 
     public void HearNothing(){
+//TODO: implement this case
+        GameStateMachine.Instance.SetStateForNoInteraction();
 
     }
 
@@ -120,20 +78,6 @@ StartCoroutine(SaySomethingAndActivateListeningAfterwards(audioSource.clip));
         if(node["intents"] == null || node["intents"].Count == 0){
             HearOutOfScope();
         }
-    }
-
-
-
-
-    private IEnumerator SaySomethingAndActivateListeningAfterwards(AudioClip clip){
-        audioSource.clip = clip;
-        audioSource.Play();
-
-        while(audioSource.isPlaying){
-            yield return null;
-        }
-
-        voiceListener.Activate();
     }
 
 

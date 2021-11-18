@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Asyncoroutine;
 
 public class GameStateMachine : MonoBehaviour {
 
@@ -18,12 +19,6 @@ public class GameStateMachine : MonoBehaviour {
         }
     }
 
-
-//TODO: enum for level state or so.....
-
-//nach und nach nur die nexten bauteile anzeigen.....und oder auch gar nicht und nur, wenn man hilfe braucht oder so....
-
-
     void Awake(){
         if( (instance != null) && (instance != this) ){
             Destroy(this.gameObject);
@@ -33,14 +28,8 @@ public class GameStateMachine : MonoBehaviour {
         }        
     }
 
-   
-
     private void Init(){ //Singletons Awake
-        //currentState = 1;
-
         currentState = stateToStartWith;
-
-
         Debug.Log("GameStateMachine started");
     }
 
@@ -50,11 +39,18 @@ public class GameStateMachine : MonoBehaviour {
     }
 
     public async void PlayCurrentState(){
+        Debug.Log("Play current state: " + currentState.name);
         if(currentState.nextWithoutCondition != null){
-            //await marvis.Say(currentState.audioClipToSay);
+            await marvis.Say(currentState.audioClipToSay);
+            await new WaitForSeconds(1f);
+            SetStateForNextWithoutCondition();
+        }
+        else{ //CAUTION: be sure to leave the nextWithoutCondition field None, when you need a interaction
+            Debug.Log("and wait for answer afterwards...");
+            await marvis.Say(currentState.audioClipToSay, true);
+            //HINT: no need to await here for extra seconds, because after you said something, the wit response anyhow need a quick moment to process, which is enough for a "realistic" conversation
         }
     }
-
 
     private void SetNextState(GameStateSO nextState){
         currentState = nextState;
@@ -75,6 +71,10 @@ public class GameStateMachine : MonoBehaviour {
     
     public void SetStateForNo(){
         SetNextState(currentState.onNo);
+    }
+    
+    private void SetStateForNextWithoutCondition(){
+        SetNextState(currentState.nextWithoutCondition);
     }
     
 }

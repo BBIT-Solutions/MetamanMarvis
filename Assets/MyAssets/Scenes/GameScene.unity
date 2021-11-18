@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 538012548}
   - component: {fileID: 538012547}
   m_Layer: 0
-  m_Name: LevelController
+  m_Name: GameStateMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,6 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756f95777c25944a9b282809e62ae78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateToStartWith: {fileID: 11400000, guid: ce9ca0b337a38b7449bfde54bbdcb8a8, type: 2}
 --- !u!4 &538012548
 Transform:
   m_ObjectHideFlags: 0

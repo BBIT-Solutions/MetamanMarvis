@@ -17,5 +17,5 @@ MonoBehaviour:
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
-  nextWithoutCondition: {fileID: 11400000, guid: e797b02178a752248a7df999b7426ddc,
+  nextWithoutCondition: {fileID: 11400000, guid: e0ef818199e623b49a3e6882344c3570,
     type: 2}

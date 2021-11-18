@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 0-Intro-06-Ok
+  m_Name: 1-Level1-02-CreateEnvironment
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: 7d25aa8b167b0e340ad7ab5ab62e6e72, type: 3}
-  onRepeat: {fileID: 11400000}
-  onNoInteraction: {fileID: 11400000}
-  onYes: {fileID: 11400000, guid: 75274969b32adf443914ef3c8f9a4dff, type: 2}
-  onNo: {fileID: 11400000, guid: b86a830d0962acc48af7a4d77b8858b9, type: 2}
-  nextWithoutCondition: {fileID: 0}
+  audioClipToSay: {fileID: 8300000, guid: c7a3267de0f88f049aa5d40cb0c86c13, type: 3}
+  onRepeat: {fileID: 0}
+  onNoInteraction: {fileID: 0}
+  onYes: {fileID: 0}
+  onNo: {fileID: 0}
+  nextWithoutCondition: {fileID: 11400000, guid: e797b02178a752248a7df999b7426ddc,
+    type: 2}

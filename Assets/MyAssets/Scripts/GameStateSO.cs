@@ -15,6 +15,7 @@ public class GameStateSO : ScriptableObject {
     //TODO: asset/s to spawn/reveal   (string?!) ... or have it in scene and link the go/prefab there
                 //special intent (all as one, or one for each?)
                 //alreadyInvoked ... or just compare them....
+                        //--> serializable like the County, to be able to connect it?!
 
     public GameStateSO nextWithoutCondition;
 }
