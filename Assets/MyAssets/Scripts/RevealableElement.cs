@@ -5,8 +5,9 @@ using UnityEngine;
 public class RevealableElement : MonoBehaviour {
 
     public enum RevealableElementTag{
-        LEVEL1_Table, LEVEL1_Materializer, LEVEL1_DraggableGunElement1, LEVEL1_GunHintElement1,
-        LEVEL2_xyzTODO
+        LEVEL1_Table, LEVEL1_Materializer, LEVEL1_GrabableGunElement1, LEVEL1_GunHintElement1,
+        LEVEL2_xyzTODO,
+        LEVEL5FINAL____xyzTODO_enemy //something like this can you also assign to multiple gameObjects
     };
 
     [SerializeField] public RevealableElementTag revealableElementTag;

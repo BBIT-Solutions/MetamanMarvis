@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfba50db269437746ab48a6639054139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealableElementTag: 4
+  revealableElementTag: 3
 --- !u!1 &1003436156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,7 +3945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfba50db269437746ab48a6639054139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revealableElementTag: 4
+  revealableElementTag: 2
 --- !u!1 &2031492436
 GameObject:
   m_ObjectHideFlags: 0
