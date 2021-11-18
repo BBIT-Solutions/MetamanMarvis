@@ -560,6 +560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1711c70e867b1124b836f4d5624ae032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notUnderstandPhrases:
+  - {fileID: 8300000, guid: b40c46d844e1c3e4fb9a1ea839f7e2b7, type: 3}
+  - {fileID: 8300000, guid: c221cb52cf7a083479fe81c1d50579f1, type: 3}
+  - {fileID: 8300000, guid: 5c0382b8353c2db4ba0d97b4aab99c76, type: 3}
+  - {fileID: 8300000, guid: 1edeedfb65519d1488b7d722daeedccb, type: 3}
 --- !u!4 &173059356
 Transform:
   m_ObjectHideFlags: 0

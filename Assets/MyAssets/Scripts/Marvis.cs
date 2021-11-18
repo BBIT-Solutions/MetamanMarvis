@@ -19,8 +19,13 @@ public class Marvis : MonoBehaviour {
     AudioSource audioSource;
     Oculus.Voice.AppVoiceExperience voiceListener;
 
+    [SerializeField] AudioClip[] notUnderstandPhrases;
+    private int currentNotUnderstandPhrase;
+    
+
     void Awake() {
         audioSource = GetComponent<AudioSource>();
+        currentNotUnderstandPhrase = 0;
     }
 
     void Start() {
@@ -39,8 +44,7 @@ public class Marvis : MonoBehaviour {
         }
 
         if(listenAfterwards){
-            voiceListener.Activate();
-//TODO: let a timeout run or so, if nothing happens
+            WaitForAnswer();
         }
 
     }
@@ -58,6 +62,23 @@ public class Marvis : MonoBehaviour {
             }
 
         }
+    }
+
+    public IEnumerator SayNotUnderstandPhrase(){
+
+        audioSource.clip = notUnderstandPhrases[currentNotUnderstandPhrase];
+        audioSource.Play();
+
+        while(audioSource.isPlaying){
+            yield return null;
+        }
+
+        currentNotUnderstandPhrase = (currentNotUnderstandPhrase + 1) % notUnderstandPhrases.Length;
+    }
+
+    public void WaitForAnswer(){
+        voiceListener.Activate();
+//TODO: let a timeout run or so, if nothing happens
     }
 
 

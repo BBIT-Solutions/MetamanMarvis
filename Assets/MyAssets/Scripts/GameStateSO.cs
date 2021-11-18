@@ -15,6 +15,8 @@ public class GameStateSO : ScriptableObject {
     // public GameObject[] elementsToReveal;
     public RevealableElement.RevealableElementTag[] elementsToReveal;
  
+    public bool isAFinalState;
+
 
     
 //--> //diese hier verlinken.... und auf GO jeweils extra component machen RevealableElement... und da get, bzw. einfach auch public das...

@@ -9,8 +9,9 @@ public class GameStateMachine : MonoBehaviour {
     public static GameStateMachine Instance{ get{ return instance; }}
 
     [SerializeField] GameStateSO stateToStartWith; //HINT: to Debug a later state immediately, change that tmp
-
+    
     Marvis marvis;
+
 
     private GameStateSO currentState;
     public GameStateSO CurrentState{
@@ -29,12 +30,17 @@ public class GameStateMachine : MonoBehaviour {
     }
 
     private void Init(){ //Singletons Awake
-        currentState = stateToStartWith;
+        currentState = stateToStartWith;        
         Debug.Log("GameStateMachine started");
     }
 
      void Start(){
         marvis = FindObjectOfType<Marvis>();
+        StartCoroutine(StartDelayed());
+    }
+
+    IEnumerator StartDelayed(){
+        yield return new WaitForSeconds(3f); //To avoid user hears the voice immediately on game-start
         PlayCurrentState();
     }
 
@@ -62,8 +68,14 @@ Debug.Log("next state setted");
         }
         else{ //CAUTION: be sure to leave the nextWithoutCondition field None, when you need a interaction
             Debug.Log("and wait for answer afterwards...");
-            await marvis.Say(currentState.audioClipToSay, true);
+            await marvis.Say(currentState.audioClipToSay, !currentState.isAFinalState);
             //HINT: no need to await here for extra seconds, because after you said something, the wit response anyhow need a quick moment to process, which is enough for a "realistic" conversation
+       
+            //TO DEBUG: and maybe later TODO:    handle this case and quit the app or so... 
+            if(currentState.isAFinalState){       
+                Debug.Log("---------------- Final State reached ----------------");
+            }
+       
         }
     }
 
@@ -88,13 +100,12 @@ Debug.Log("next state setted");
         SetNextState(currentState.onNo);
     }
     
-    public void HandleOutOfScope(){
-//TODO: say: "sorry, i did not understand ... can you repeat" ... please repeat.... don't know what you mean, can you say that again... und so paar
-                            //---> aber dann nur warten... nicht nochmal alles sagen
+    public async void HandleOutOfScope(){
 
-
-//NUR TO DEBUG: jetzt mal ganzen State nochmal abspielen
-PlayCurrentState();
+        await marvis.SayNotUnderstandPhrase();
+        //PlayCurrentState();//should work ... if it somewhere should play too much, then just call this instead await marvis.Say(currentState.audioClipToSay, true);
+                                        //--> or if you want to repeat automatically.... but user should ask by hisself for the repeat, if he wants to hear it again... 
+        marvis.WaitForAnswer();
     }
     
     private void SetStateForNextWithoutCondition(){
