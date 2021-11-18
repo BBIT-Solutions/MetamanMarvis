@@ -45,6 +45,21 @@ public class Marvis : MonoBehaviour {
 
     }
 
+//TODO: ensure, they are all not visible at begin.... maybe make a component for them (for each one, or one with string or so for all)
+    public IEnumerator RevealElements(RevealableElement.RevealableElementTag[] elementTags){
+        for(int i=0; i<elementTags.Length; i++){            
+            yield return new WaitForSeconds(2f);
+            
+            RevealableElement[] revEls = FindObjectsOfType<RevealableElement>(true);
+            for(int j=0; j<revEls.Length; j++){
+                if(revEls[j].revealableElementTag == elementTags[i]){
+                    revEls[j].Reveal();
+                }
+            }
+
+        }
+    }
+
 
     public void HearConfirmation(){
         FindObjectOfType<DebugText>().Show("Conformation");

@@ -42,8 +42,23 @@ public class GameStateMachine : MonoBehaviour {
         Debug.Log("Play current state: " + currentState.name);
         if(currentState.nextWithoutCondition != null){
             await marvis.Say(currentState.audioClipToSay);
-            await new WaitForSeconds(1f);
+Debug.Log("told");
+            await new WaitForSeconds(1f); //wait before contuniung with the next state
+Debug.Log("waited one second");
+
+
+            if(currentState.elementsToReveal != null && currentState.elementsToReveal.Length > 0){
+Debug.Log("elements to Reveal is NOT null and not empty");
+                await marvis.RevealElements(currentState.elementsToReveal);
+                await new WaitForSeconds(5f);
+//TODO: make this Waiting time adpatable?!.... or actually it anyhow waits internally?!
+            }
+
+
+
+Debug.Log("set the next state");
             SetStateForNextWithoutCondition();
+Debug.Log("next state setted");
         }
         else{ //CAUTION: be sure to leave the nextWithoutCondition field None, when you need a interaction
             Debug.Log("and wait for answer afterwards...");

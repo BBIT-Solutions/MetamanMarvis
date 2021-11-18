@@ -17,5 +17,6 @@ MonoBehaviour:
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
+  elementsToReveal: 0000000001000000
   nextWithoutCondition: {fileID: 11400000, guid: e797b02178a752248a7df999b7426ddc,
     type: 2}

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 0-Intro-06-Ok
+  m_Name: 0-Intro-10-NiceStartGame
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: 7d25aa8b167b0e340ad7ab5ab62e6e72, type: 3}
-  onRepeat: {fileID: 11400000}
-  onNoInteraction: {fileID: 11400000}
-  onYes: {fileID: 11400000, guid: 797074693439e0e4b967b7acaf075e95, type: 2}
-  onNo: {fileID: 11400000, guid: b86a830d0962acc48af7a4d77b8858b9, type: 2}
-  nextWithoutCondition: {fileID: 0}
+  audioClipToSay: {fileID: 8300000, guid: dce5194602e57354896f58974ad461ae, type: 3}
+  onRepeat: {fileID: 0}
+  onNoInteraction: {fileID: 0}
+  onYes: {fileID: 0}
+  onNo: {fileID: 0}
+  nextWithoutCondition: {fileID: 11400000, guid: e0ef818199e623b49a3e6882344c3570,
+    type: 2}
