@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebugText : MonoBehaviour {
+public class DebugWhatIUnderstood : MonoBehaviour {
 
     TMPro.TextMeshProUGUI textField;
 
@@ -53,15 +53,15 @@ public class DebugText : MonoBehaviour {
 
 
     public void PartialTranscription(string trans){
-        if(gameObject.name == "WhatIUnderstoodText"){
+        //if(gameObject.name == "WhatIUnderstoodText"){
         string toShow = "PartialTranscription: " + trans;
             Show(toShow);
-        }
+        //}
     }
 
     public void FullTranscription(string trans){
-//        string toShow = "FullTranscription: " + trans;
-//        Show(toShow);
+        string toShow = "FullTranscription: " + trans;
+        Show(toShow);
     }  
 
 

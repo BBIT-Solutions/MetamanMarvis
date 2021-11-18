@@ -79,7 +79,7 @@ public class Marvis : MonoBehaviour {
 
     private void HearOutOfScope(){
         FindObjectOfType<DebugText>().Show("OutOfScope ... did not understand");
-//TODO: make a handler for that in the GameStateMachine
+        GameStateMachine.Instance.HandleOutOfScope();
     }
 
     public void HearNothing(){

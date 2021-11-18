@@ -88,6 +88,15 @@ Debug.Log("next state setted");
         SetNextState(currentState.onNo);
     }
     
+    public void HandleOutOfScope(){
+//TODO: say: "sorry, i did not understand ... can you repeat" ... please repeat.... don't know what you mean, can you say that again... und so paar
+                            //---> aber dann nur warten... nicht nochmal alles sagen
+
+
+//NUR TO DEBUG: jetzt mal ganzen State nochmal abspielen
+PlayCurrentState();
+    }
+    
     private void SetStateForNextWithoutCondition(){
         SetNextState(currentState.nextWithoutCondition);
     }
