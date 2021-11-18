@@ -11,6 +11,17 @@ public class ElementToPlace : MonoBehaviour {
     [SerializeField] Material materialSolved;
 
 
+    [SerializeField] GameStateMachine.StateCanBeSolvedBy onGrabbedTag;
+    [SerializeField] GameStateMachine.StateCanBeSolvedBy onCloseToHintTag;
+    [SerializeField] GameStateMachine.StateCanBeSolvedBy onSolvedTag;
+
+
+    // public delegate void StateSolved(GameStateMachine.StateCanBeSolvedBy tag);
+    // // public static StateSolved onGrabbed;
+    // // public static StateSolved oncloseToHint;
+    // // public static StateSolved onSolved;
+    // public static StateSolved onStateSolved;
+
 //TODO: make this serializable?
     float thresholdPosition = 0.05f; //meters?
     float thresholdRotation = 5.0f; //degrees?
@@ -49,6 +60,15 @@ public class ElementToPlace : MonoBehaviour {
         if(grabbable.isGrabbed || Input.GetKeyDown(KeyCode.C)){   //Keycode to DEBUG:
             Debug.Log("check " + gameObject.name);
 
+//TEST
+            if(onGrabbedTag != GameStateMachine.StateCanBeSolvedBy.NONE){
+                // onGrabbed?.Invoke(onGrabbedTag);
+                // onStateSolved?.Invoke(onGrabbedTag);
+                GameStateMachine.onStateSolved?.Invoke(onGrabbedTag);
+                onGrabbedTag = GameStateMachine.StateCanBeSolvedBy.NONE; //to ensure only trigger once //TODO: improve that maybe (if referenced by value?!)...then use bools instead
+            }
+
+
             if(CheckEndPosition()){
                 meshRenderer.material = materialHint;
 //TODO: play "exiting/tensioning" sound (if not started yet)
@@ -80,7 +100,20 @@ public class ElementToPlace : MonoBehaviour {
 
 //TODO:
         //if(correct....){
-        if(CheckPosition() && CheckRotation()){            
+        if(CheckPosition() && CheckRotation()){    
+
+
+//TEST
+            if(onCloseToHintTag != GameStateMachine.StateCanBeSolvedBy.NONE){
+                // oncloseToHint?.Invoke(onCloseToHintTag);
+                // onStateSolved?.Invoke(onCloseToHintTag);
+                GameStateMachine.onStateSolved?.Invoke(onCloseToHintTag);
+                onCloseToHintTag = GameStateMachine.StateCanBeSolvedBy.NONE; //to ensure only trigger once //TODO: improve that maybe (if referenced by value?!)...then use bools instead
+            }
+
+
+
+
             return true;
         }
 
@@ -106,6 +139,17 @@ public class ElementToPlace : MonoBehaviour {
 //TODO: IMPORTANT: SNAP/Tween to correct postion.... before it was destroyed^^
         LeanTween.rotate(gameObject, correctPosition.gameObject.transform.rotation.eulerAngles, 0.15f).setEaseOutQuad();
         LeanTween.move(gameObject, correctPosition.gameObject.transform.position, 0.3f).setEaseOutQuad().setOnComplete( () => Destroy(correctPosition.gameObject));
+
+
+//TEST
+        if(onSolvedTag != GameStateMachine.StateCanBeSolvedBy.NONE){
+            // onSolved?.Invoke(onSolvedTag);
+            //onStateSolved?.Invoke(onSolvedTag);
+            GameStateMachine.onStateSolved?.Invoke(onSolvedTag);
+            onSolvedTag = GameStateMachine.StateCanBeSolvedBy.NONE; //to ensure only trigger once //TODO: improve that maybe (if referenced by value?!)...then use bools instead
+        }
+
+
 
 
 //NEXT: hier irgendwas auslösen....entweder auf correct positon oder hier.... evtl. auch dann das richtig diffuse anzeigen

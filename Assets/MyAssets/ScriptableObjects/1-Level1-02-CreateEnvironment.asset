@@ -18,6 +18,7 @@ MonoBehaviour:
   onYes: {fileID: 0}
   onNo: {fileID: 0}
   elementsToReveal: 0000000001000000
+  canBeSolvedByAnAction: 0
+  canBeSolvedByTag: 0
   isAFinalState: 0
-  nextWithoutCondition: {fileID: 11400000, guid: b986d3894eca8b845a6ed65be6c803a4,
-    type: 2}
+  nextState: {fileID: 11400000, guid: b986d3894eca8b845a6ed65be6c803a4, type: 2}

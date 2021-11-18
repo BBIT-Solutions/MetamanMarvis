@@ -14,6 +14,9 @@ public class GameStateSO : ScriptableObject {
 
     // public GameObject[] elementsToReveal;
     public RevealableElement.RevealableElementTag[] elementsToReveal;
+
+    public bool canBeSolvedByAnAction;
+    public GameStateMachine.StateCanBeSolvedBy canBeSolvedByTag;
  
     public bool isAFinalState;
 
@@ -29,7 +32,8 @@ public class GameStateSO : ScriptableObject {
                 //alreadyInvoked ... or just compare them....
                         //--> serializable like the County, to be able to connect it?!
 
-    public GameStateSO nextWithoutCondition;
+    [Tooltip("next state, which can be reached by solving an action or completely without any voice interaction")]
+    public GameStateSO nextState;
 }
 
 /*

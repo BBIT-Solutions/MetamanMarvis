@@ -10,6 +10,18 @@ public class GameStateMachine : MonoBehaviour {
 
     [SerializeField] GameStateSO stateToStartWith; //HINT: to Debug a later state immediately, change that tmp
     
+
+    public enum StateCanBeSolvedBy{
+//GUN CLOSE evtl. auch weglassen.... und das noch zeigen bevor man Hint revealed ... (um nicht 2 audios gleichzeitig zu haben)
+        NONE,
+        LEVEL1_GrabGun1, /*LEVEL1_BringGunClose,*/ LEVEL1_PlaceGun1, 
+        LEVEL2_xyzTODO,
+        LEVEL5FINAL____xyzTODO_ShotAllEnemies 
+    };
+    public delegate void StateSolved(GameStateMachine.StateCanBeSolvedBy tag);
+    public static StateSolved onStateSolved;
+
+
     Marvis marvis;
 
 
@@ -46,7 +58,7 @@ public class GameStateMachine : MonoBehaviour {
 
     public async void PlayCurrentState(){
         Debug.Log("Play current state: " + currentState.name);
-        if(currentState.nextWithoutCondition != null){
+        if(currentState.nextState != null){
             await marvis.Say(currentState.audioClipToSay);
 Debug.Log("told");
             await new WaitForSeconds(1f); //wait before contuniung with the next state
@@ -56,14 +68,14 @@ Debug.Log("waited one second");
             if(currentState.elementsToReveal != null && currentState.elementsToReveal.Length > 0){
 Debug.Log("elements to Reveal is NOT null and not empty");
                 await marvis.RevealElements(currentState.elementsToReveal);
-                await new WaitForSeconds(5f);
+                //await new WaitForSeconds(5f); //DO NOT....else the handler for the Solved action could be registered too late!
 //TODO: make this Waiting time adpatable?!.... or actually it anyhow waits internally?!
             }
 
 
 
 Debug.Log("set the next state");
-            SetStateForNextWithoutCondition();
+            SetStateForNextState();
 Debug.Log("next state setted");
         }
         else{ //CAUTION: be sure to leave the nextWithoutCondition field None, when you need a interaction
@@ -104,12 +116,24 @@ Debug.Log("next state setted");
 
         await marvis.SayNotUnderstandPhrase();
         //PlayCurrentState();//should work ... if it somewhere should play too much, then just call this instead await marvis.Say(currentState.audioClipToSay, true);
-                                        //--> or if you want to repeat automatically.... but user should ask by hisself for the repeat, if he wants to hear it again... 
+                                        //--> or if you want to repeat automatically.... but user should ask by hisself for the repeat, if he wants to hear it again...
+                                            //CAUTION: if you do playCurrentState, then ensure not registering multipleTimes for the same onStateSolvedDelegate 
         marvis.WaitForAnswer();
     }
     
-    private void SetStateForNextWithoutCondition(){
-        SetNextState(currentState.nextWithoutCondition);
+    private void SetStateForNextState(){
+        if(currentState.canBeSolvedByAnAction){
+            onStateSolved += HandleStateSolvedByAction;
+        }
+        else{
+            SetNextState(currentState.nextState);
+        }
+    }
+
+    private void HandleStateSolvedByAction(StateCanBeSolvedBy solvedTag){
+        if(currentState.canBeSolvedByTag == solvedTag){
+            SetNextState(currentState.nextState);
+        }
     }
     
 }
