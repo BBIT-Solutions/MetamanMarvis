@@ -11,6 +11,9 @@ public class GameStateSO : ScriptableObject {
     public GameStateSO onNoInteraction;
     public GameStateSO onYes;
     public GameStateSO onNo;
+    public GameStateSO onHint;
+    public GameStateSO onOrder;
+    public GameStateSO onReady;
 
     // public GameObject[] elementsToReveal;
     public RevealableElement.RevealableElementTag[] elementsToReveal;
@@ -19,6 +22,10 @@ public class GameStateSO : ScriptableObject {
     public GameStateMachine.StateCanBeSolvedBy canBeSolvedByTag;
  
     public bool isAFinalState;
+
+    public bool canReactOnIntentHint;
+    public bool canReactOnIntentOrder;
+    public bool canReactOnIntentReady;
 
 
     

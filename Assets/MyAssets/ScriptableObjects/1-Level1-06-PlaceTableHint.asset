@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 1-Level1-02-CreateEnvironment
+  m_Name: 1-Level1-06-PlaceTableHint
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: c7a3267de0f88f049aa5d40cb0c86c13, type: 3}
-  onRepeat: {fileID: 0}
-  onNoInteraction: {fileID: 0}
-  onYes: {fileID: 0}
-  onNo: {fileID: 0}
-  onHint: {fileID: 0}
+  audioClipToSay: {fileID: 8300000, guid: d9b8617b6561d6841af6dd2b5e2ace7f, type: 3}
+  onRepeat: {fileID: 11400000}
+  onNoInteraction: {fileID: 11400000, guid: 2699210fe3f54cb4e9985694fead7853, type: 2}
+  onYes: {fileID: 11400000, guid: ebe0f3e78f2206d469181a55bf30ca11, type: 2}
+  onNo: {fileID: 11400000, guid: 2699210fe3f54cb4e9985694fead7853, type: 2}
+  onHint: {fileID: 11400000, guid: ebe0f3e78f2206d469181a55bf30ca11, type: 2}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
-  elementsToReveal: 0000000001000000
+  elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
   isAFinalState: 0
-  canReactOnIntentHint: 0
+  canReactOnIntentHint: 1
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 11400000, guid: 4d35d48d382df4b42a4efb745f65ab19, type: 2}
+  nextState: {fileID: 0}

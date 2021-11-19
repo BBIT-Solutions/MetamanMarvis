@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 1-Level1-02-CreateEnvironment
+  m_Name: 1-Level1-05-WherePut
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: c7a3267de0f88f049aa5d40cb0c86c13, type: 3}
+  audioClipToSay: {fileID: 8300000, guid: 086379b41fe20504c8576e6f4c468dcc, type: 3}
   onRepeat: {fileID: 0}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
@@ -20,11 +20,11 @@ MonoBehaviour:
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
-  elementsToReveal: 0000000001000000
+  elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
   isAFinalState: 0
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 11400000, guid: 4d35d48d382df4b42a4efb745f65ab19, type: 2}
+  nextState: {fileID: 11400000, guid: 02041a9532fd2e1449fa3bf9fb3533ee, type: 2}

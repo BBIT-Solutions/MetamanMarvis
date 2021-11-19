@@ -121,6 +121,18 @@ Debug.Log("next state setted");
         SetNextState(currentState.onNo);
     }
     
+    public void SetStateForHint(){
+        SetNextState(currentState.onHint);
+    }
+    
+    public void SetStateForOrder(){
+        SetNextState(currentState.onOrder);
+    }
+    
+    public void SetStateForReady(){
+        SetNextState(currentState.onReady);
+    }
+    
     public async void HandleOutOfScope(){
 
         await marvis.SayNotUnderstandPhrase();

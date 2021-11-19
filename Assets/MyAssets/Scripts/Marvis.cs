@@ -46,6 +46,7 @@ public class Marvis : MonoBehaviour {
         //because the very first listening always is not working correctly, we do one "fake" listening to init the system
 
 //TODO: show a loading screen/bar or the logo or something similar in the meantime
+                //--> schild/tafel, wo draufsteht von oben nach unten, was M.A.R.V.I.S. heißt...
 
         voiceListener.ActivateImmediately();
 
@@ -168,6 +169,25 @@ public class Marvis : MonoBehaviour {
             HearOutOfScope();
         }
     }
+
+
+
+    public void HearHint(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
+        FindObjectOfType<DebugText>().Show("Hint");
+        if(GameStateMachine.Instance.CurrentState.canReactOnIntentHint){
+            GameStateMachine.Instance.SetStateForHint();
+        }
+        else{
+            HearOutOfScope();
+        }
+    }
+
+    //TODO: same like HearHint for order and ready
 
 
 
