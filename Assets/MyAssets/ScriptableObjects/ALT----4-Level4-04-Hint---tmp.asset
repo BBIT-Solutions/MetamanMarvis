@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 5-Level5-04-Hint---tmp
+  m_Name: ALT----4-Level4-04-Hint---tmp
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: c60b8ac4916103d41abbb35a9287ff09, type: 3}
   onRepeat: {fileID: 0}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
-  elementsToReveal: 0b000000
+  elementsToReveal: 09000000
   canBeSolvedByAnAction: 1
-  canBeSolvedByTag: 10
+  canBeSolvedByTag: 8
   isAFinalState: 0
-  nextState: {fileID: 11400000, guid: e797b02178a752248a7df999b7426ddc, type: 2}
+  nextState: {fileID: 11400000, guid: 09b74dd45be65964cabc8b35f6e8b060, type: 2}

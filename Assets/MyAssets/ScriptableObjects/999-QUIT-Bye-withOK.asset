@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 4-Level4-04-Hint---tmp
+  m_Name: 999-QUIT-Bye-withOK
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: c60b8ac4916103d41abbb35a9287ff09, type: 3}
+  audioClipToSay: {fileID: 8300000, guid: 87ffd0ac1a793f74fb99824467bd5149, type: 3}
   onRepeat: {fileID: 0}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
-  elementsToReveal: 09000000
-  canBeSolvedByAnAction: 1
-  canBeSolvedByTag: 8
-  isAFinalState: 0
-  nextState: {fileID: 11400000, guid: 09b74dd45be65964cabc8b35f6e8b060, type: 2}
+  elementsToReveal: 
+  isAFinalState: 1
+  nextWithoutCondition: {fileID: 0}

@@ -10,21 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 999-QUIT-Bye
+  m_Name: ALT----3-Level3-04-Hint---tmp
   m_EditorClassIdentifier: 
-  audioClipToSay: {fileID: 8300000, guid: ab655c96ce22e424da173804ecf170ee, type: 3}
+  audioClipToSay: {fileID: 8300000, guid: c60b8ac4916103d41abbb35a9287ff09, type: 3}
   onRepeat: {fileID: 0}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
-  onHint: {fileID: 0}
-  onOrder: {fileID: 0}
-  onReady: {fileID: 0}
-  elementsToReveal: 
-  canBeSolvedByAnAction: 0
-  canBeSolvedByTag: 0
-  isAFinalState: 1
-  canReactOnIntentHint: 0
-  canReactOnIntentOrder: 0
-  canReactOnIntentReady: 0
-  nextState: {fileID: 0}
+  elementsToReveal: 07000000
+  canBeSolvedByAnAction: 1
+  canBeSolvedByTag: 6
+  isAFinalState: 0
+  nextState: {fileID: 11400000, guid: a60b1e6bac99e7e4aaed3b96cb9afa67, type: 2}
