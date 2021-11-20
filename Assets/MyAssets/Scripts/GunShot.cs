@@ -13,9 +13,13 @@ public class GunShot : MonoBehaviour {
 
     bool waitForNextShot;
 
+    [SerializeField] GameStateMachine.StateCanBeSolvedBy onGrabbedAndShotTag;
+    int shotCount;
+
     void Awake() {
         waitForNextShot = false;
         grabbable = GetComponent<OVRGrabbable>();
+        shotCount = 0;
     }
 
 
@@ -54,6 +58,12 @@ public class GunShot : MonoBehaviour {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.clip = shotSound;
         audioSource.Play();
+
+        shotCount++;
+
+        if(shotCount >= 3){ //don't reset this. If user shot before the state/task started, in this way, it will then still be invoked.... else wait for the 3 shots in general (the statemachine anyhow changes the state then, so that it does not react the next time then)
+            GameStateMachine.onStateSolved?.Invoke(onGrabbedAndShotTag);
+        }
 
         StartCoroutine(WaitForNextShot());
     }

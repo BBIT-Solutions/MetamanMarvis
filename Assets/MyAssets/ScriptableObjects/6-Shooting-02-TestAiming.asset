@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: 6-Shooting-02-TestAiming
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 2d25e29baa1eae444b8c98bde1d7454c, type: 3}
-  onRepeat: {fileID: 0}
+  onRepeat: {fileID: 11400000}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
-  elementsToReveal: 
-  canBeSolvedByAnAction: 0
-  canBeSolvedByTag: 0
+  onOpenDoor: {fileID: 0}
+  elementsToReveal: 10000000
+  canBeSolvedByAnAction: 1
+  canBeSolvedByTag: 12
   isAFinalState: 0
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 0}
+  canReactOnIntentOpenDoor: 0
+  nextState: {fileID: 11400000, guid: 0d56329de0a42f2458172f28d0962d55, type: 2}
