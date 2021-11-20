@@ -59,6 +59,10 @@ public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO ca
             gameObject.SetActive(true);
 
         }
+
+        if(transform.parent.gameObject.name.Equals("GrabableGunItems")){
+            transform.localPosition = Vector3.zero;
+        }
     }
 
 }
