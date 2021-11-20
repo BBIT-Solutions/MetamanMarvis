@@ -74,9 +74,13 @@ public class Marvis : MonoBehaviour {
     }
 
 //TODO: ensure, they are all not visible at begin.... maybe make a component for them (for each one, or one with string or so for all)
-    public IEnumerator RevealElements(RevealableElement.RevealableElementTag[] elementTags){
-        for(int i=0; i<elementTags.Length; i++){            
-            yield return new WaitForSeconds(2f);
+    public IEnumerator RevealElements(RevealableElement.RevealableElementTag[] elementTags){ //TODO: maybe make a flag, if (when multiple) they should be revealed together or step by step
+        for(int i=0; i<elementTags.Length; i++){         
+            
+            // if(i!=0){   
+            if(elementTags.Length > 1){   
+                yield return new WaitForSeconds(2f);
+            }
             
             RevealableElement[] revEls = FindObjectsOfType<RevealableElement>(true);
             for(int j=0; j<revEls.Length; j++){
@@ -195,7 +199,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("Order");
         if(GameStateMachine.Instance.CurrentState.canReactOnIntentOrder){
-            GameStateMachine.Instance.SetStateForHint();
+            GameStateMachine.Instance.SetStateForOrder();
         }
         else{
             HearOutOfScope();
@@ -210,7 +214,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("Ready");
         if(GameStateMachine.Instance.CurrentState.canReactOnIntentReady){
-            GameStateMachine.Instance.SetStateForHint();
+            GameStateMachine.Instance.SetStateForReady();
         }
         else{
             HearOutOfScope();
@@ -225,7 +229,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("OpenDoor");
         if(GameStateMachine.Instance.CurrentState.canReactOnIntentOpenDoor){
-            GameStateMachine.Instance.SetStateForHint();
+            GameStateMachine.Instance.SetStateForOpenDoor();
         }
         else{
             HearOutOfScope();

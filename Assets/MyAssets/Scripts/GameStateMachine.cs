@@ -19,8 +19,8 @@ public class GameStateMachine : MonoBehaviour {
         LEVEL3_GrabGun3, LEVEL3_PlaceGun3, 
         LEVEL4_GrabGun4, LEVEL4_PlaceGun4, 
         LEVEL5_GrabGun5, LEVEL5_PlaceGun5, 
-        // LEVEL2_xyzTODO,
-        LEVEL5FINAL____xyzTODO_ShotAllEnemies 
+        GRAB_AND_SHOT_FULLGUN,
+        SHOT_ALL_TARGET_ENEMIES 
     };
     public delegate void StateSolved(GameStateMachine.StateCanBeSolvedBy tag);
     public static StateSolved onStateSolved;
@@ -69,9 +69,9 @@ public class GameStateMachine : MonoBehaviour {
         Debug.Log("Play current state: " + currentState.name);
         if(currentState.nextState != null){
             await marvis.Say(currentState.audioClipToSay);
-Debug.Log("told");
-            await new WaitForSeconds(1f); //wait before contuniung with the next state
-Debug.Log("waited one second");
+//Debug.Log("told");
+//            await new WaitForSeconds(1f); //wait before contuniung with the next state
+//Debug.Log("waited one second");
 
 
             if(currentState.elementsToReveal != null && currentState.elementsToReveal.Length > 0){
@@ -81,6 +81,8 @@ Debug.Log("elements to Reveal is NOT null and not empty");
 //TODO: make this Waiting time adpatable?!.... or actually it anyhow waits internally?!
             }
 
+
+            await new WaitForSeconds(1f); //wait before contuniung with the next state
 
 
 Debug.Log("set the next state");
