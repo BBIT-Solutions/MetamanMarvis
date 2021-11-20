@@ -20,6 +20,7 @@ MonoBehaviour:
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
+  onOpenDoor: {fileID: 0}
   elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
@@ -27,4 +28,5 @@ MonoBehaviour:
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 0}
+  canReactOnIntentOpenDoor: 0
+  nextState: {fileID: 11400000, guid: 958f823fa14151d46a12774e9c8d15f3, type: 2}

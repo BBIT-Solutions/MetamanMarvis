@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: 4-Level4-02-OpenDoor
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 17b4f0e6e7c33294c9db21684c87482d, type: 3}
-  onRepeat: {fileID: 0}
-  onNoInteraction: {fileID: 0}
-  onYes: {fileID: 0}
-  onNo: {fileID: 0}
+  onRepeat: {fileID: 11400000}
+  onNoInteraction: {fileID: 11400000, guid: 9bed5c6624203444d97d69e9503a2885, type: 2}
+  onYes: {fileID: 11400000, guid: 6f9ca972478f06e4b897c495c6c9b1b0, type: 2}
+  onNo: {fileID: 11400000, guid: 9bed5c6624203444d97d69e9503a2885, type: 2}
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
+  onOpenDoor: {fileID: 11400000, guid: 6f9ca972478f06e4b897c495c6c9b1b0, type: 2}
   elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
@@ -27,4 +28,5 @@ MonoBehaviour:
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
+  canReactOnIntentOpenDoor: 1
   nextState: {fileID: 0}
