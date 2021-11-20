@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 1
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!65 &76648324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -403,6 +405,11 @@ PrefabInstance:
       propertyPath: m_parentHeldObject
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 137977633181334670, guid: e6ba3498ffa1e534b91a07264266e6b8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7966e414e98431346917d6a3fc765034, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ba3498ffa1e534b91a07264266e6b8, type: 3}
 --- !u!1 &158183275
@@ -530,6 +537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 11
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &173059354
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 10
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1001 &246759779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -974,6 +985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 13
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!114 &412656051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,6 +1000,125 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 12
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
+--- !u!1 &457629380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1720038475629598, guid: e6ba3498ffa1e534b91a07264266e6b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 136836304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &457629383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457629380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfba50db269437746ab48a6639054139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revealableElementTag: 14
+  skinMaterial: {fileID: 2100000, guid: 7966e414e98431346917d6a3fc765034, type: 2}
+  gloveMaterial: {fileID: 2100000, guid: 9004b0546bd2f014892fc19bd2da1165, type: 2}
+--- !u!82 &457629384
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457629380}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7f3a1ab2f65dd224fbe0e5a69d87afe9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &505623524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756f95777c25944a9b282809e62ae78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateToStartWith: {fileID: 11400000, guid: 5cd2d5a9675e19341ab0d38c7a873a31, type: 2}
+  stateToStartWith: {fileID: 11400000, guid: fc42abb8e5e22284ba1a3cf776b30c16, type: 2}
 --- !u!4 &538012548
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,6 +1475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 0
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 4
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &876558772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a,
@@ -1832,6 +1968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 13
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!114 &923143320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,6 +1983,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 12
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &942373040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 3
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &1003436156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,6 +2725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 6
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &1128363388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,6 +3246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 9
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1001 &1618172477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3857,6 +4003,125 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 5
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
+--- !u!1 &1800985746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1134128082860472, guid: ba1fa4a8c66106b4988c88fe4b8e8502,
+    type: 3}
+  m_PrefabInstance: {fileID: 1888465496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1800985749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800985746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfba50db269437746ab48a6639054139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revealableElementTag: 14
+  skinMaterial: {fileID: 2100000, guid: 7966e414e98431346917d6a3fc765034, type: 2}
+  gloveMaterial: {fileID: 2100000, guid: 9004b0546bd2f014892fc19bd2da1165, type: 2}
+--- !u!82 &1800985750
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800985746}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7f3a1ab2f65dd224fbe0e5a69d87afe9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1888465496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3920,6 +4185,23 @@ PrefabInstance:
       propertyPath: m_parentHeldObject
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1134128082860472, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625309523625354, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1868230913667624, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137383442524578654, guid: ba1fa4a8c66106b4988c88fe4b8e8502,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7966e414e98431346917d6a3fc765034, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1fa4a8c66106b4988c88fe4b8e8502, type: 3}
 --- !u!1 &1941283218
@@ -4047,6 +4329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 7
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &1974491389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,6 +4498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 2
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}
 --- !u!1 &2014141810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,3 +4731,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealableElementTag: 8
+  skinMaterial: {fileID: 0}
+  gloveMaterial: {fileID: 0}

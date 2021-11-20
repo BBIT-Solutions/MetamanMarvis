@@ -19,12 +19,22 @@ public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO ca
     [SerializeField] public RevealableElementTag revealableElementTag;
     private bool alreadyRevealed;
 
+    [Tooltip("Only necessary for the Gloves tag")]
+    [SerializeField] public Material skinMaterial;
+    [Tooltip("Only necessary for the Gloves tag")]
+    [SerializeField] public Material gloveMaterial;
 
 
     void Awake() {
         alreadyRevealed = false;
-        if((revealableElementTag == RevealableElementTag.HIDE_VIRTUAL_ELEMENTS) || (revealableElementTag == RevealableElementTag.SHOW_VIRTUAL_ELEMENTS) ){
-            return; //don't change anything in these 2 cases
+        if(revealableElementTag == RevealableElementTag.GLOVES_ON_CONTROLLER){
+            GetComponent<SkinnedMeshRenderer>().material = skinMaterial;
+        }
+        if( (revealableElementTag == RevealableElementTag.HIDE_VIRTUAL_ELEMENTS) || 
+            (revealableElementTag == RevealableElementTag.SHOW_VIRTUAL_ELEMENTS) ||
+            (revealableElementTag == RevealableElementTag.GLOVES_ON_CONTROLLER) 
+        ){
+            return; //don't change anything in these cases
         }        
         gameObject.SetActive(false);        //ensure they are hidden by default
     }
@@ -39,6 +49,10 @@ public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO ca
 
         if(revealableElementTag == RevealableElementTag.HIDE_VIRTUAL_ELEMENTS){
             gameObject.SetActive(false); //it's not really "revealing" the gameobject in this case ... it's rather revealing this "Property"
+        }
+        else if(revealableElementTag == RevealableElementTag.GLOVES_ON_CONTROLLER){
+            GetComponent<SkinnedMeshRenderer>().material = gloveMaterial;
+            GetComponent<AudioSource>().Play();
         }
         else{
         //TODO: maybe animate/tween that ... but for now just switch active state:
