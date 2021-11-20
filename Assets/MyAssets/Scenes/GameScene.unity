@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e756f95777c25944a9b282809e62ae78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateToStartWith: {fileID: 11400000, guid: 0fef9daa55bac9245b1d03b80e116cd7, type: 2}
+  stateToStartWith: {fileID: 11400000, guid: 5cd2d5a9675e19341ab0d38c7a873a31, type: 2}
 --- !u!4 &538012548
 Transform:
   m_ObjectHideFlags: 0

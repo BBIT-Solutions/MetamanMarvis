@@ -29,4 +29,4 @@ MonoBehaviour:
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
   canReactOnIntentOpenDoor: 0
-  nextState: {fileID: 0}
+  nextState: {fileID: 11400000, guid: 1be9337c9d36ac3468fab08b83011805, type: 2}

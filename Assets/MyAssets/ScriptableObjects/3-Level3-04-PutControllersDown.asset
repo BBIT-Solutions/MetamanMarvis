@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: 3-Level3-04-PutControllersDown
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 8a7feafac1887b84097e26e11bd4e90f, type: 3}
-  onRepeat: {fileID: 0}
-  onNoInteraction: {fileID: 0}
-  onYes: {fileID: 0}
-  onNo: {fileID: 0}
+  onRepeat: {fileID: 11400000}
+  onNoInteraction: {fileID: 11400000}
+  onYes: {fileID: 11400000, guid: 5eade0a991fa9974faebea5be5b261eb, type: 2}
+  onNo: {fileID: 11400000}
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
-  onReady: {fileID: 0}
+  onReady: {fileID: 11400000, guid: 5eade0a991fa9974faebea5be5b261eb, type: 2}
+  onOpenDoor: {fileID: 0}
   elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
   isAFinalState: 0
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
-  canReactOnIntentReady: 0
+  canReactOnIntentReady: 1
+  canReactOnIntentOpenDoor: 0
   nextState: {fileID: 0}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b01ff035a092654a90e477801cdfe01, type: 3}
-  m_Name: 3-Level3-18-NewClothes
+  m_Name: 3-Level3-18-NewGloves
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 7639ed5d08654dd42ad144a2a226fb15, type: 3}
   onRepeat: {fileID: 0}
@@ -20,6 +20,7 @@ MonoBehaviour:
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
+  onOpenDoor: {fileID: 0}
   elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
@@ -27,4 +28,5 @@ MonoBehaviour:
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 0}
+  canReactOnIntentOpenDoor: 0
+  nextState: {fileID: 11400000, guid: a40fd80bc3ae818418e1db2cfd4cda95, type: 2}
