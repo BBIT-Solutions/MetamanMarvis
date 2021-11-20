@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevealableElement : MonoBehaviour {
+public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO can contain multiple of this component, which can be tagged differently
 
     public enum RevealableElementTag{
         LEVEL1_Table, LEVEL1_Materializer, LEVEL1_GrabableGunElement1, LEVEL1_GunHintElement1,
@@ -22,8 +22,11 @@ public class RevealableElement : MonoBehaviour {
 
 
     void Awake() {
-        gameObject.SetActive(false);        //ensure they are hidden by default
         alreadyRevealed = false;
+        if((revealableElementTag == RevealableElementTag.HIDE_VIRTUAL_ELEMENTS) || (revealableElementTag == RevealableElementTag.SHOW_VIRTUAL_ELEMENTS) ){
+            return; //don't change anything in these 2 cases
+        }        
+        gameObject.SetActive(false);        //ensure they are hidden by default
     }
 
     public void Reveal(){
@@ -32,8 +35,16 @@ public class RevealableElement : MonoBehaviour {
         alreadyRevealed = true;
 
 
-        //TODO: maybe animate/tween that ... but for now just:
-        gameObject.SetActive(true);
+
+
+        if(revealableElementTag == RevealableElementTag.HIDE_VIRTUAL_ELEMENTS){
+            gameObject.SetActive(false); //it's not really "revealing" the gameobject in this case ... it's rather revealing this "Property"
+        }
+        else{
+        //TODO: maybe animate/tween that ... but for now just switch active state:
+            gameObject.SetActive(true);
+
+        }
     }
 
 }

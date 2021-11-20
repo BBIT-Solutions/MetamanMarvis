@@ -21,7 +21,7 @@ MonoBehaviour:
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
   onOpenDoor: {fileID: 0}
-  elementsToReveal: 
+  elementsToReveal: 0c000000
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
   isAFinalState: 0
