@@ -133,6 +133,10 @@ Debug.Log("next state setted");
         SetNextState(currentState.onReady);
     }
     
+    public void SetStateForOpenDoor(){
+        SetNextState(currentState.onOpenDoor);
+    }
+    
     public async void HandleOutOfScope(){
 
         await marvis.SayNotUnderstandPhrase();

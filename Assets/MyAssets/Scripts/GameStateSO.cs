@@ -14,6 +14,7 @@ public class GameStateSO : ScriptableObject {
     public GameStateSO onHint;
     public GameStateSO onOrder;
     public GameStateSO onReady;
+    public GameStateSO onOpenDoor;
 
     // public GameObject[] elementsToReveal;
     public RevealableElement.RevealableElementTag[] elementsToReveal;
@@ -26,6 +27,7 @@ public class GameStateSO : ScriptableObject {
     public bool canReactOnIntentHint;
     public bool canReactOnIntentOrder;
     public bool canReactOnIntentReady;
+    public bool canReactOnIntentOpenDoor;
 
 
     

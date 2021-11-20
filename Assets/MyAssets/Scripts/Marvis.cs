@@ -187,6 +187,51 @@ public class Marvis : MonoBehaviour {
         }
     }
 
+    public void HearOrder(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
+        FindObjectOfType<DebugText>().Show("Order");
+        if(GameStateMachine.Instance.CurrentState.canReactOnIntentOrder){
+            GameStateMachine.Instance.SetStateForHint();
+        }
+        else{
+            HearOutOfScope();
+        }
+    }
+
+    public void HearReady(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
+        FindObjectOfType<DebugText>().Show("Ready");
+        if(GameStateMachine.Instance.CurrentState.canReactOnIntentReady){
+            GameStateMachine.Instance.SetStateForHint();
+        }
+        else{
+            HearOutOfScope();
+        }
+    }
+
+    public void HearOpenDoor(){
+        if(isInitializing){
+            isInitializing = false;
+            return;
+        }
+        
+        FindObjectOfType<DebugText>().Show("OpenDoor");
+        if(GameStateMachine.Instance.CurrentState.canReactOnIntentOpenDoor){
+            GameStateMachine.Instance.SetStateForHint();
+        }
+        else{
+            HearOutOfScope();
+        }
+    }
+
     //TODO: same like HearHint for order and ready
 
 
