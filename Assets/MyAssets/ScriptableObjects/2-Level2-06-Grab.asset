@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: 2-Level2-06-Grab
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 353e9ed4c8fa52c40ba5a7818a642d1a, type: 3}
-  onRepeat: {fileID: 0}
+  onRepeat: {fileID: 11400000}
   onNoInteraction: {fileID: 0}
   onYes: {fileID: 0}
   onNo: {fileID: 0}
   onHint: {fileID: 0}
   onOrder: {fileID: 0}
   onReady: {fileID: 0}
-  elementsToReveal: 
-  canBeSolvedByAnAction: 0
-  canBeSolvedByTag: 0
+  onOpenDoor: {fileID: 0}
+  elementsToReveal: 04000000
+  canBeSolvedByAnAction: 1
+  canBeSolvedByTag: 3
   isAFinalState: 0
   canReactOnIntentHint: 0
   canReactOnIntentOrder: 0
   canReactOnIntentReady: 0
-  nextState: {fileID: 0}
+  canReactOnIntentOpenDoor: 0
+  nextState: {fileID: 11400000, guid: 56ca404117905de4d9aeedf4cb502cc2, type: 2}

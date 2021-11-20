@@ -13,18 +13,20 @@ MonoBehaviour:
   m_Name: 2-Level2-02-WantOrder
   m_EditorClassIdentifier: 
   audioClipToSay: {fileID: 8300000, guid: 35a7ceddd555e8e489708bc088047806, type: 3}
-  onRepeat: {fileID: 0}
-  onNoInteraction: {fileID: 0}
-  onYes: {fileID: 0}
-  onNo: {fileID: 0}
+  onRepeat: {fileID: 11400000}
+  onNoInteraction: {fileID: 11400000, guid: 3c3cb29c4955fb64a9d88c592a4cb47b, type: 2}
+  onYes: {fileID: 11400000, guid: 143f8ea682912024fb941c7f3b6041a1, type: 2}
+  onNo: {fileID: 11400000, guid: 3c3cb29c4955fb64a9d88c592a4cb47b, type: 2}
   onHint: {fileID: 0}
-  onOrder: {fileID: 0}
+  onOrder: {fileID: 11400000, guid: 143f8ea682912024fb941c7f3b6041a1, type: 2}
   onReady: {fileID: 0}
+  onOpenDoor: {fileID: 0}
   elementsToReveal: 
   canBeSolvedByAnAction: 0
   canBeSolvedByTag: 0
   isAFinalState: 0
   canReactOnIntentHint: 0
-  canReactOnIntentOrder: 0
+  canReactOnIntentOrder: 1
   canReactOnIntentReady: 0
+  canReactOnIntentOpenDoor: 0
   nextState: {fileID: 0}
