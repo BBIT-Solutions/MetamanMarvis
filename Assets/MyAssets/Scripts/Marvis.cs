@@ -77,7 +77,7 @@ public class Marvis : MonoBehaviour {
     public IEnumerator RevealElements(RevealableElement.RevealableElementTag[] elementTags){ //TODO: maybe make a flag, if (when multiple) they should be revealed together or step by step
         for(int i=0; i<elementTags.Length; i++){         
             
-            // if(i!=0){   
+
             if(elementTags.Length > 1){   
                 yield return new WaitForSeconds(2f);
             }
@@ -85,6 +85,9 @@ public class Marvis : MonoBehaviour {
             RevealableElement[] revEls = FindObjectsOfType<RevealableElement>(true);
             for(int j=0; j<revEls.Length; j++){
                 if(revEls[j].revealableElementTag == elementTags[i]){
+                    //if(revEls.Length > 1){   //HINT: this would allow, to reveal also elements of the same tag step by step (but probably not needed)
+                    //    yield return new WaitForSeconds(2f);
+                    //}
                     revEls[j].Reveal();
                 }
             }
