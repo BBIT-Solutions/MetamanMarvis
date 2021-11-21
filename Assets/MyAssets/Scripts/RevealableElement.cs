@@ -60,7 +60,13 @@ public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO ca
 
         }
 
-        if(transform.parent.gameObject.name.Equals("GrabableGunItems")){
+        //if(transform.parent.gameObject.name.Equals("GrabableGunItems")){
+        if( (revealableElementTag == RevealableElementTag.LEVEL1_GrabableGunElement1) || 
+            (revealableElementTag == RevealableElementTag.LEVEL2_GrabableGunElement2) ||
+            (revealableElementTag == RevealableElementTag.LEVEL3_GrabableGunElement3) ||
+            (revealableElementTag == RevealableElementTag.LEVEL4_GrabableGunElement4) ||
+            (revealableElementTag == RevealableElementTag.LEVEL5_GrabableGunElement5) 
+        ){
             transform.localPosition = Vector3.zero;
         }
     }
