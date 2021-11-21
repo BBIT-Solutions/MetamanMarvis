@@ -140,7 +140,10 @@ public class ElementToPlace : MonoBehaviour {
 
 //TODO: IMPORTANT: SNAP/Tween to correct postion.... before it was destroyed^^
         LeanTween.rotate(gameObject, correctPosition.gameObject.transform.rotation.eulerAngles, 0.15f).setEaseOutQuad();
-        LeanTween.move(gameObject, correctPosition.gameObject.transform.position, 0.3f).setEaseOutQuad().setOnComplete( () => Destroy(correctPosition.gameObject));
+        LeanTween.move(gameObject, correctPosition.gameObject.transform.position, 0.3f).setEaseOutQuad().setOnComplete( () => {
+            transform.SetParent(correctPosition.transform.parent);
+            Destroy(correctPosition.gameObject);
+        });
 
 
 //TEST
