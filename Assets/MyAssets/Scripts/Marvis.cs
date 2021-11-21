@@ -121,6 +121,7 @@ public class Marvis : MonoBehaviour {
 
         FindObjectOfType<DebugText>().Show("Conformation");
         GameStateMachine.Instance.SetStateForYes();
+        FindObjectOfType<ShowSoundProblemWarning>().SoundProblemFixed();
     }
 
     public void HearNegotiation(){
@@ -131,6 +132,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("Negotiation");
         GameStateMachine.Instance.SetStateForNo();
+        FindObjectOfType<ShowSoundProblemWarning>().SoundProblemFixed();
     }
 
     public void HearRepeatRequest(){
@@ -141,6 +143,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("RepeatRequest");
         GameStateMachine.Instance.SetStateForRepeat();
+        FindObjectOfType<ShowSoundProblemWarning>().SoundProblemFixed();
     }
     
 
@@ -152,6 +155,7 @@ public class Marvis : MonoBehaviour {
         
         FindObjectOfType<DebugText>().Show("OutOfScope ... did not understand");
         GameStateMachine.Instance.HandleOutOfScope();
+        FindObjectOfType<ShowSoundProblemWarning>().SoundProblemFixed();
     }
 
     public void HearNothing(){
@@ -238,9 +242,6 @@ public class Marvis : MonoBehaviour {
             HearOutOfScope();
         }
     }
-
-    //TODO: same like HearHint for order and ready
-
 
 
 }
