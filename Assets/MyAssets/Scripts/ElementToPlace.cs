@@ -96,6 +96,8 @@ public class ElementToPlace : MonoBehaviour {
 
     public bool CheckEndPosition(){
 
+        if(!correctPosition.gameObject.activeInHierarchy) return false; //only allow checking, if the correct position is already revealed
+
         //vergleichen mit end pos und rot....und bei innerhalb threshold threshold (evtl. setzbar pro pos und pro rot und pro element)
 
 //TODO:
