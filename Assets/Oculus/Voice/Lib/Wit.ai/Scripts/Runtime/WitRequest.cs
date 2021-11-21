@@ -331,7 +331,14 @@ namespace Facebook.WitAi
                                 stringResponse = Encoding.UTF8.GetString(buffer, 0, bytes);
                                 if (stringResponse.Length > 0)
                                 {
-                                    responseData = WitResponseJson.Parse(stringResponse);
+
+                                    try{ //BBIT: added an extra try-catch-block here also, to continue at least with a not-understand-message instead of a deadlock when e.g. a json is malformed (problem occured e.g. with "entities  ... without closing quotation marks....when confused entity-keywords with intent) 
+                                        responseData = WitResponseJson.Parse(stringResponse);
+                                    }catch(Exception e){
+                                        Debug.LogWarning("a problem catched during json parsing, but let's continue at least...   problem with stringRespnse:   " + stringResponse + "\n\n\n   exception was " + 
+                                                            $"{e.Message}\nRequest Stack Trace:\n{callingStackTrace}\nResponse Stack Trace:\n{e.StackTrace}");
+                                    }
+
 
                                     if(responseData != null){ //BBIT: to fix bug which stopped the record after first word
                                         var transcription = responseData["text"];
