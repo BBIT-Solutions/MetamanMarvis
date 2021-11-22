@@ -74,8 +74,8 @@ using System;
      /// <param name="entityValues">countdown in minutes.</param>
      public void CreateTimer(string[] entityValues)
      {
-Debug.Log("!!!!!  entityValues 0: " + entityValues[0]);
-Debug.Log("!!!!!  entityValues 1: " + entityValues[1]);
+        //Debug.Log("!!!!!  entityValues 0: " + entityValues[0]);
+        //Debug.Log("!!!!!  entityValues 1: " + entityValues[1]);
          if (_timerExist)
          {
              Log("A timer already exist.");

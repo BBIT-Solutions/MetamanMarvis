@@ -55,12 +55,11 @@ public class RevealableElement : MonoBehaviour { //HINT: if necessary, one GO ca
             GetComponent<AudioSource>().Play();
         }
         else{
-        //TODO: maybe animate/tween that ... but for now just switch active state:
+            //TODO: maybe animate/tween that ... but for now just switch active state:
             gameObject.SetActive(true);
 
         }
 
-        //if(transform.parent.gameObject.name.Equals("GrabableGunItems")){
         if( (revealableElementTag == RevealableElementTag.LEVEL1_GrabableGunElement1) || 
             (revealableElementTag == RevealableElementTag.LEVEL2_GrabableGunElement2) ||
             (revealableElementTag == RevealableElementTag.LEVEL3_GrabableGunElement3) ||

@@ -9,11 +9,8 @@ public class Marvis : MonoBehaviour {
     
 
     //TODO: maybe.... skip request, go-back request, next request?! --> but can be also handled by the level state machine or so....
-
-
-//TODO: maybe handle if currently saying or listening and avoid it then? ... or make a queue or so?!
-
-//maybe TODO: let a timer run or so, after the say() ... and if after xyz no voice was recognized...and/or after xyz was nothing appeared...make an active deactivate and say it again or so
+    //TODO: maybe handle if currently saying or listening and avoid it then? ... or make a queue or so?!
+    //maybe TODO: let a timer run or so, after the say() ... and if after xyz no voice was recognized...and/or after xyz was nothing appeared...make an active deactivate and say it again or so
 
 
     AudioSource audioSource;
@@ -45,8 +42,8 @@ public class Marvis : MonoBehaviour {
     IEnumerator Init(){
         //because the very first listening always is not working correctly, we do one "fake" listening to init the system
 
-//TODO: show a loading screen/bar or the logo or something similar in the meantime
-                //--> schild/tafel, wo draufsteht von oben nach unten, was M.A.R.V.I.S. heißt...
+        //TODO: show a loading screen/bar or the logo or something similar in the meantime
+                //--> e.g. a sign which explains what M.A.R.V.I.S. means
 
         voiceListener.ActivateImmediately();
 
@@ -57,8 +54,6 @@ public class Marvis : MonoBehaviour {
 
 
     public IEnumerator Say(AudioClip toSay, bool listenAfterwards = false){
-
-//TODO: maybe somehow check if not playing currently?! ... or handle that by the caller?!
 
         audioSource.clip = toSay;
         audioSource.Play();
@@ -73,7 +68,6 @@ public class Marvis : MonoBehaviour {
 
     }
 
-//TODO: ensure, they are all not visible at begin.... maybe make a component for them (for each one, or one with string or so for all)
     public IEnumerator RevealElements(RevealableElement.RevealableElementTag[] elementTags){ //TODO: maybe make a flag, if (when multiple) they should be revealed together or step by step
         for(int i=0; i<elementTags.Length; i++){         
             
@@ -109,7 +103,7 @@ public class Marvis : MonoBehaviour {
 
     public void WaitForAnswer(){
         voiceListener.Activate();
-//TODO: let a timeout run or so, if nothing happens
+        //TODO: let a timeout run or so, if nothing happens
     }
 
 
@@ -164,7 +158,7 @@ public class Marvis : MonoBehaviour {
             return;
         }
         
-//TODO: implement this case
+        //TODO: implement this case
         GameStateMachine.Instance.SetStateForNoInteraction();
 
     }

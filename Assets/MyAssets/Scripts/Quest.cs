@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour {
 
-    // [SerializeField] GameObject[] questParts; 
-//TODO: maybe name it "Subquest" or so
+    //TODO: maybe name it "Subquest" or so
     [SerializeField] ElementToPlace[] questParts; 
 
     [SerializeField] GameObject reward;
@@ -21,7 +20,7 @@ public class Quest : MonoBehaviour {
 
         if(questSolved) return;
         
-//TODO: has this to be done in Update necessarily?!
+        //TODO: has this to be done in Update necessarily?!
 
         bool tmpSolved = true;
         for(int i=0; i<questParts.Length; i++){

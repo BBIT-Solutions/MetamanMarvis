@@ -22,7 +22,7 @@ using System;
          var colorString = values[0];
          var shapeString = values[1];
 
-Debug.Log("Update Color with:  (color: )  "  + colorString + "         (shape: )   " + shapeString);
+        Debug.Log("Update Color with:  (color: )  "  + colorString + "         (shape: )   " + shapeString);
 
          if (!ColorUtility.TryParseHtmlString(colorString, out var color)) return;
          if (string.IsNullOrEmpty(shapeString)) return;

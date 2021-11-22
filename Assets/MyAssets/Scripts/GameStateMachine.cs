@@ -12,7 +12,6 @@ public class GameStateMachine : MonoBehaviour {
     
 
     public enum StateCanBeSolvedBy{
-//GUN CLOSE evtl. auch weglassen.... und das noch zeigen bevor man Hint revealed ... (um nicht 2 audios gleichzeitig zu haben)
         NONE,
         LEVEL1_GrabGun1, /*LEVEL1_BringGunClose,*/ LEVEL1_PlaceGun1, 
         LEVEL2_GrabGun2, LEVEL2_PlaceGun2, 
@@ -69,28 +68,22 @@ public class GameStateMachine : MonoBehaviour {
         Debug.Log("Play current state: " + currentState.name);
         if(currentState.nextState != null){
             await marvis.Say(currentState.audioClipToSay);
-//Debug.Log("told");
-//            await new WaitForSeconds(1f); //wait before contuniung with the next state
-//Debug.Log("waited one second");
-
 
             if(currentState.elementsToReveal != null && currentState.elementsToReveal.Length > 0){
-Debug.Log("elements to Reveal is NOT null and not empty");
                 await marvis.RevealElements(currentState.elementsToReveal);
-                //await new WaitForSeconds(5f); //DO NOT....else the handler for the Solved action could be registered too late!
-//TODO: make this Waiting time adpatable?!.... or actually it anyhow waits internally?!
+                            //await new WaitForSeconds(5f); //DO NOT....else the handler for the Solved action could be registered too late!
+                //TODO: make this Waiting time adpatable?!.... or actually it anyhow waits internally?!
             }
 
 
             await new WaitForSeconds(1f); //wait before contuniung with the next state
 
 
-Debug.Log("set the next state");
+            //Debug.Log("set the next state");
             SetStateForNextState();
-Debug.Log("next state setted");
         }
         else{ //CAUTION: be sure to leave the nextWithoutCondition field None, when you need a interaction
-            Debug.Log("and wait for answer afterwards...");
+            //Debug.Log("and wait for answer afterwards...");
             await marvis.Say(currentState.audioClipToSay, !currentState.isAFinalState);
             //HINT: no need to await here for extra seconds, because after you said something, the wit response anyhow need a quick moment to process, which is enough for a "realistic" conversation
        
