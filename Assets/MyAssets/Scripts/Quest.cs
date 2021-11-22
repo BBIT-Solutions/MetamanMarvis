@@ -9,7 +9,7 @@ public class Quest : MonoBehaviour {
 
     [SerializeField] GameObject reward;
 
-    bool questSolved;
+    bool questSolved; 
 
     void Awake() {
         reward.SetActive(false);
