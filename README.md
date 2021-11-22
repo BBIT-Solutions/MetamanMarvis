@@ -1,6 +1,6 @@
 # MetamanMarvis
 
-Install Instruction:
+## Install Instructions:
 - Download the metaman-marvis.apk
 - Install it our your Oculus Quest(2)
 - Ensure Experimental Features are enabled
